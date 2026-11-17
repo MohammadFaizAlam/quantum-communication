@@ -1,0 +1,5 @@
+{
+  "name": "BB84 Quantum Secure Communication Workbench",
+  "description": "Educational BB84 quantum key distribution simulator: intercept-resend eavesdropping, QBER estimation, Poincare sphere & quantum optics labs, and one-time-pad encryption demonstration.",
+  "requestFramePermissions": []
+}

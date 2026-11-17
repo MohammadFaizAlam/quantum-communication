@@ -1,0 +1,333 @@
+@import 'tailwindcss';
+
+/*
+ * Precision Optical Bench — Balanced Obsidian, Matte Black, Royal Sapphire & Emerald
+ * Refined architectural contrast: lighter satin obsidian surfaces framing matte-black
+ * optical cavities, cut-obsidian frosted glass, and purposeful sapphire/emerald accents.
+ */
+@theme {
+  /* ── Surface scale: Matte Black Wells → Satin Obsidian Cards → Elevated Chrome ── */
+  --color-abyss-950: #090b0f;
+  --color-abyss-900: #11141b;
+  --color-abyss-850: #171b24;
+  --color-abyss-800: #1f2531;
+  --color-abyss-700: #293142;
+  --color-abyss-600: #384358;
+  --color-abyss-500: #505d78;
+
+  /* ── Text hierarchy: Crisp Mineral Neutral ── */
+  --color-ink-100: #f3f5f9;
+  --color-ink-200: #d5dbe6;
+  --color-ink-300: #9ea8bb;
+  --color-ink-400: #727d93;
+  --color-ink-500: #535d73;
+
+  /* ── Royal Sapphire: Transmission, Quantum Channel & Primary Actions ── */
+  --color-signal-300: #93c5fd;
+  --color-signal-400: #508ff7;
+  --color-signal-500: #2563eb;
+  --color-signal-600: #1d4ed8;
+
+  /* ── Actor channels ── */
+  --color-alice-300: #93c5fd;
+  --color-alice-400: #5b9af8;
+  --color-alice-500: #2563eb;
+  --color-bob-300: #c4b5fd;
+  --color-bob-400: #a58df5;
+  --color-bob-500: #7c3aed;
+  --color-eve-300: #fca5a5;
+  --color-eve-400: #f06565;
+  --color-eve-500: #dc2626;
+
+  /* ── Precious Emerald: Verified Security & Retained Secret Key ── */
+  --color-pass-300: #6ee7b7;
+  --color-pass-400: #22c58b;
+  --color-pass-500: #10b981;
+  --color-pass-600: #059669;
+
+  /* ── Warm Brass Calibration: Public Spy Check & 11% Theoretical Margin ── */
+  --color-warn-300: #fcd34d;
+  --color-warn-400: #eab338;
+  --color-warn-500: #d97706;
+
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #eab338;
+  --color-amber-500: #d97706;
+  --color-amber-600: #b45309;
+
+  /* ── Typography ── */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  /* Balanced obsidian field (not flat black void) so cut glass & matte optical wells read with depth */
+  background-color: #0e1117;
+  background-image:
+    radial-gradient(ellipse 68% 46% at 15% 2%, rgba(37, 99, 235, 0.14) 0%, transparent 64%),
+    radial-gradient(ellipse 58% 42% at 88% 6%, rgba(16, 185, 129, 0.085) 0%, transparent 62%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.017) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.017) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px;
+  background-attachment: fixed;
+  color: var(--color-ink-100);
+  font-family: var(--font-sans);
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Subtle technical coordinate grid for 2D optical stage viewports ── */
+.bg-optical-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── Tabular numerals ── */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 1.5px solid var(--color-signal-400);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════
+ * PRECISION LINEAR POTENTIOMETER SLIDER
+ * Recessed matte-black track + brushed-titanium 16px detent cap
+ * ═══════════════════════════════════════════════ */
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(8, 10, 14, 0.94);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  outline: none;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #10131b 0%, #10131b 2.2px, transparent 2.8px),
+    linear-gradient(180deg, #e5eaf2 0%, #99a3b6 100%);
+  border: 1.5px solid #080a0e;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.72),
+    inset 0 1px 0 rgba(255, 255, 255, 0.52);
+  cursor: grab;
+  transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.16s, background 0.16s;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+  background:
+    radial-gradient(circle at 50% 50%, #080a0e 0%, #080a0e 2.2px, transparent 2.8px),
+    linear-gradient(180deg, #f8fafc 0%, #bac4d6 100%);
+}
+
+input[type='range']::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+  border-color: var(--color-signal-400);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #10131b 0%, #10131b 2.2px, transparent 2.8px),
+    linear-gradient(180deg, #e5eaf2 0%, #99a3b6 100%);
+  border: 1.5px solid #080a0e;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.72),
+    inset 0 1px 0 rgba(255, 255, 255, 0.52);
+  cursor: grab;
+  transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.16s;
+}
+
+input[type='range']::-moz-range-thumb:hover {
+  transform: scale(1.12);
+}
+
+input[type='range']::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(8, 10, 14, 0.94);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* ═══════════════════════════════════════════════
+ * CUT-OBSIDIAN GLASSMORPHISM & MATTE CAVITIES
+ * Real glass separation over balanced obsidian + matte-black instrument interiors
+ * ═══════════════════════════════════════════════ */
+
+.glass-panel {
+  background: linear-gradient(
+    168deg,
+    rgba(27, 33, 45, 0.72) 0%,
+    rgba(17, 21, 29, 0.68) 55%,
+    rgba(13, 17, 23, 0.74) 100%
+  );
+  backdrop-filter: blur(22px) saturate(130%);
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+    0 20px 44px -22px rgba(0, 0, 0, 0.82);
+}
+
+.instrument-panel {
+  background: linear-gradient(
+    180deg,
+    rgba(23, 27, 37, 0.88) 0%,
+    rgba(16, 19, 26, 0.86) 100%
+  );
+  backdrop-filter: blur(14px) saturate(118%);
+  -webkit-backdrop-filter: blur(14px) saturate(118%);
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.065),
+    0 12px 32px -18px rgba(0, 0, 0, 0.72);
+}
+
+.glass-card {
+  background: linear-gradient(
+    180deg,
+    rgba(23, 27, 37, 0.84) 0%,
+    rgba(16, 19, 26, 0.82) 100%
+  );
+  backdrop-filter: blur(14px) saturate(118%);
+  -webkit-backdrop-filter: blur(14px) saturate(118%);
+  border: 1px solid rgba(255, 255, 255, 0.085);
+}
+
+/* Deep matte carbon-black recessed cavity for optical traces, radar, charts, and inputs */
+.matte-well {
+  background-color: #080a0d;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Tactile Royal Sapphire primary trigger */
+.btn-sapphire {
+  background: linear-gradient(180deg, #3474f5 0%, #2157d5 100%);
+  border: 1px solid rgba(147, 197, 253, 0.28);
+  color: #f8fafc;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 6px 16px -6px rgba(37, 99, 235, 0.5);
+  transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), filter 0.16s, box-shadow 0.16s;
+}
+.btn-sapphire:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 8px 20px -6px rgba(37, 99, 235, 0.62);
+}
+.btn-sapphire:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+/* Tactile Emerald verified cryptographic action */
+.btn-emerald {
+  background: linear-gradient(180deg, #16b87f 0%, #0d9264 100%);
+  border: 1px solid rgba(110, 231, 183, 0.28);
+  color: #f8fafc;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 6px 16px -6px rgba(16, 185, 129, 0.45);
+  transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), filter 0.16s, box-shadow 0.16s;
+}
+.btn-emerald:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 8px 20px -6px rgba(16, 185, 129, 0.56);
+}
+.btn-emerald:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+/* ═══════════════════════════════════════════════
+ * OPTICAL FIBER SIGNAL FLOW
+ * ═══════════════════════════════════════════════ */
+
+@keyframes laser-flow {
+  from {
+    stroke-dashoffset: 36;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.laser-stream {
+  stroke-dasharray: 6 3;
+  animation: laser-flow 1.2s linear infinite;
+}
+
+.laser-stream-red {
+  stroke-dasharray: 4 4;
+  animation: laser-flow 0.9s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+ * SCROLLBAR
+ * ═══════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-abyss-700);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-abyss-600);
+}
